@@ -1,0 +1,19 @@
+# Ignore Python bytecode files
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore node_modules (for Node.js projects)
+node_modules/
+
+# Ignore build and distribution files
+build/
+dist/
+
+# Ignore IDE files
+.vscode/
+.idea/
