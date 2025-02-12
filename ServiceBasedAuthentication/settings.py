@@ -26,10 +26,8 @@ SECRET_KEY = 'django-insecure-2jwmn8&sbpe8phf@6q65wl#2v-1n#db=mlntor(ydt8c^unkl*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['servicebasedauthentication.onrender.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['servicebasedauthentication.onrender.com', '127.0.0.1', 'localhost',"127.0.0.1:3000"]
 
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -38,9 +36,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'company',
-    'loginsystem',
+    'rest_framework',
+    'homeserver',
+
 ]
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
