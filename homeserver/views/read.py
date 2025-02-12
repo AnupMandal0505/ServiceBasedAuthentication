@@ -19,7 +19,7 @@ class AppControlAuth(viewsets.ViewSet):
         if not pass_key or not phone:
             return Response({"error": "Missing pass_key or phone"}, status=status.HTTP_400_BAD_REQUEST)
 
-        user_exists = UserAccount.objects.filter(pass_key=pass_key, username=phone,is_on_hold=False).exists()
+        user_exists = UserAccount.objects.filter(pass_key=pass_key, phone=phone,is_on_hold=False).exists()
 
         if user_exists:
             return Response({"RES": True}, status=status.HTTP_200_OK)

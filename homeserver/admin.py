@@ -51,13 +51,13 @@ class HomeServerAdmin(admin.ModelAdmin):
 # 🔹 Register UserAccount Admin
 @admin.register(UserAccount)
 class UserAccountAdmin(admin.ModelAdmin):
-    list_display = ('username', 'home_server', 'is_on_hold')
-    search_fields = ('username', 'home_server__name')
+    list_display = ('phone', 'home_server', 'is_on_hold')
+    search_fields = ('phone', 'home_server__name')
     list_filter = ('is_on_hold',)
     readonly_fields = ('id',)
     
     fieldsets = (
-        ("Account Info", {'fields': ('username', 'pass_key', 'home_server')}),
+        ("Account Info", {'fields': ('phone', 'pass_key', 'home_server')}),
         ("Status", {'fields': ('is_on_hold',)}),
     )
 
@@ -70,10 +70,10 @@ class UserAccountAdmin(admin.ModelAdmin):
         response['Content-Disposition'] = 'attachment; filename=user_accounts.csv'
 
         writer = csv.writer(response)
-        writer.writerow(['Username', 'Home Server', 'On Hold'])
+        writer.writerow(['phone', 'Home Server', 'On Hold'])
 
         for obj in queryset:
-            writer.writerow([obj.username, obj.home_server.name, obj.is_on_hold])
+            writer.writerow([obj.phone, obj.home_server.name, obj.is_on_hold])
 
         return response
     

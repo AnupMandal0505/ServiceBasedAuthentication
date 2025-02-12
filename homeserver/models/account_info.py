@@ -6,12 +6,12 @@ import uuid
 class UserAccount(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     home_server = models.ForeignKey(HomeServer, on_delete=models.CASCADE)
-    username = models.CharField(max_length=100, unique=True)
+    phone = models.CharField(max_length=100, unique=True)
     pass_key = models.CharField(max_length=255, unique=True)
     is_on_hold = models.BooleanField(default=False)  # Hold status
 
     def __str__(self):
-        return f"{self.username} ({'On Hold' if self.is_on_hold else 'Active'})"
+        return f"{self.phone} ({'On Hold' if self.is_on_hold else 'Active'})"
 
   
 
